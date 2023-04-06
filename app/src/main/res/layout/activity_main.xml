@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_skip"
+            android:text="skip"
+            android:textColor="@color/black"
+            android:textSize="20dp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/transparent"/>
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/login_phoneno"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter your phone no."
+        app:counterEnabled="true"
+        app:counterMaxLength="10"
+        app:endIconMode="clear_text"
+        app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.TextInputLayout.Rounded"
+        app:errorEnabled="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="170dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/logon_phoneno1"
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+
+            android:inputType="number"
+            android:maxLength="10"
+            />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Already_I_have_a_account"
+            app:layout_constraintEnd_toEndOf="parent"
+           app:layout_constraintBottom_toTopOf="@+id/btn_login"
+            android:text="Already I have a account"
+            android:layout_marginRight="20dp"
+            android:textSize="15dp"
+            android:textStyle="bold"/>
+
+<com.google.android.material.button.MaterialButton
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/btn_login"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/login_phoneno"
+    android:text="login"
+    android:textStyle="bold"
+    android:layout_marginTop="40dp"
+    android:layout_marginLeft="40dp"
+    android:layout_marginRight="40dp"
+    app:cornerRadius="20dp"
+    />
+
+
+
+
+        <com.google.android.material.button.MaterialButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/btn_signup"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_login"
+            android:text="sign up"
+            android:textStyle="bold"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="40dp"
+            app:cornerRadius="20dp"
+            />
+
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dont_have_a_account"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/btn_signup"
+            android:text="Don't have an account"
+            android:layout_marginRight="20dp"
+            android:textSize="15dp"
+            android:textStyle="bold"/>
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
