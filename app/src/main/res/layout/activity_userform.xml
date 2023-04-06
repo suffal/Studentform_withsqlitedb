@@ -8,7 +8,11 @@
     <data>
 
     </data>
-<ScrollView
+
+
+    <ScrollView
+
+
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -18,31 +22,30 @@
         android:layout_height="match_parent"
         tools:context=".userformActivity">
 
-        <com.google.android.material.button.MaterialButton
+        <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btn_Date"
-            android:text="date"
-            android:textColor="@color/black"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            android:layout_marginRight="5dp"
-            app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/user"
+           app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:background="@android:color/transparent"/>
+            android:text="User:-"
+            android:textSize="18dp"
+            android:layout_marginRight="100dp"
 
-        <com.google.android.material.button.MaterialButton
+            android:textStyle="bold"/>
+
+        <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/btn_user"
-            android:text="user"
-            android:textColor="@color/black"
-            android:textSize="15dp"
-            android:textStyle="bold"
-            android:layout_marginRight="70dp"
+            android:id="@+id/Date"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="@android:color/transparent"/>
+           app:layout_constraintTop_toBottomOf="@+id/user"
+            android:text="Date:-"
+            android:textSize="18dp"
+            android:layout_marginRight="100dp"
+
+            android:textStyle="bold"/>
+
 
 
 
@@ -51,14 +54,13 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
             android:layout_width="170dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
             android:hint=" First name"
             app:counterEnabled="true"
             app:endIconMode="clear_text"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.TextInputLayout.Rounded"
             app:errorEnabled="true"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+          app:layout_constraintTop_toBottomOf="@+id/Date"
             android:layout_marginLeft="10dp"
             app:startIconDrawable="@drawable/baseline_person_24"
 
@@ -84,14 +86,14 @@
 
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.TextInputLayout.Rounded"
 
-            android:layout_marginTop="30dp"
+
             android:hint="Last name"
             app:counterEnabled="true"
             app:endIconMode="clear_text"
             app:errorEnabled="true"
             android:layout_alignParentRight="true"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/Date"
             android:layout_marginRight="10dp"
 
 
@@ -189,20 +191,218 @@
             app:helperTextTextColor="@color/purple_200"
             app:startIconDrawable="@drawable/baseline_email_24"
             >
+
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/Email_Id_edtext"
                 android:layout_width="match_parent"
                 android:layout_height="54dp"
 
-                android:maxLength="30"
-                />
+                android:maxLength="30" />
         </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/DOB_inputlayout"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter your D.O.B"
+            app:counterEnabled="true"
+            app:counterMaxLength="10"
+            app:endIconMode="clear_text"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.MyApp.TextInputLayout.Rounded"
+            app:errorEnabled="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/Email_id_inputlayout"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            app:helperText="Mandatory"
+            app:helperTextTextColor="@color/purple_200"
+
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/dob_edtext"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+
+                android:maxLength="30" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/Gender"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/DOB_inputlayout"
+            android:text="Gender"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_marginRight="100dp"
+
+            android:textStyle="bold"/>
+
+        <RadioGroup
+            android:id="@+id/radioButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/Gender"
+            android:orientation="horizontal">
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/email"
+                android:layout_marginLeft="10dp"
+                android:text="Male">
+
+            </com.google.android.material.radiobutton.MaterialRadioButton>
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/Female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Female">
+
+            </com.google.android.material.radiobutton.MaterialRadioButton>
+
+            <com.google.android.material.radiobutton.MaterialRadioButton
+                android:id="@+id/TransGender"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="TransGender">
+
+            </com.google.android.material.radiobutton.MaterialRadioButton>
+
+        </RadioGroup>
+
+
+        <com.google.android.material.textview.MaterialTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/course"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/radioButton"
+            android:text="Course"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:layout_marginRight="100dp"
+            android:textStyle="bold"/>
+
+
+
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/B.techlayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/course"
+            app:layout_constraintStart_toStartOf="parent"
+
+            >
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/B.tech"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="B-Tech" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/BCA_Layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           app:layout_constraintTop_toBottomOf="@+id/course"
+
+          app:layout_constraintLeft_toRightOf="@+id/B.techlayout"
+            >
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/bca"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="BCA" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/MCA_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/course"
+
+            app:layout_constraintLeft_toRightOf="@+id/BCA_Layout"
+            >
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/MCA"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="MCA" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/M.tech_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/B.techlayout"
+
+           app:layout_constraintStart_toStartOf="parent"
+            >
+
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/M.tech"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="M.tech" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/B.B.A_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/B.techlayout"
+         app:layout_constraintLeft_toRightOf="@+id/M.tech_layout"
+            >
+            <com.google.android.material.checkbox.MaterialCheckBox
+                android:id="@+id/B.B.A"
+                android:layout_width="130dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="B.B.A" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</ScrollView>
 
+</ScrollView>
 
 </layout>
 
