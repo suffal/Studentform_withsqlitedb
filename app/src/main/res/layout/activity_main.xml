@@ -88,19 +88,7 @@
 
 
 
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/btn_signup"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_login"
-            android:text="sign up"
-            android:textStyle="bold"
-            android:layout_marginTop="50dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            app:cornerRadius="20dp"
-            />
+
 
 
 
@@ -109,10 +97,12 @@
             android:layout_height="wrap_content"
             android:id="@+id/dont_have_a_account"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/btn_signup"
+           app:layout_constraintTop_toBottomOf="@+id/btn_login"
             android:text="Don't have an account"
-            android:layout_marginRight="20dp"
-            android:textSize="15dp"
+            android:layout_marginRight="50dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_marginTop="30dp"
             android:textStyle="bold"/>
 
 

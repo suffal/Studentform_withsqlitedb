@@ -26,10 +26,10 @@ binding=DataBindingUtil.setContentView(this,R.layout.activity_main)
         )
 
 
-        binding.btnSignup.setOnClickListener(this)
+
         binding.btnLogin.setOnClickListener(this)
         binding.btnSkip.setOnClickListener(this)
-
+        binding.dontHaveAAccount.setOnClickListener(this)
 
 
 
@@ -40,7 +40,7 @@ binding=DataBindingUtil.setContentView(this,R.layout.activity_main)
 
         when(View?.id){
 
-            R.id.btn_signup->{
+            R.id.dont_have_a_account->{
                 val intent= Intent(this,signupActivity::class.java)
                 startActivity(intent)
             }

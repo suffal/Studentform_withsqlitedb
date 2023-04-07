@@ -3,6 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+
+
     <data>
 
     </data>
@@ -11,6 +13,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".signupActivity">
+
+
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/S_First_name"
@@ -101,16 +105,29 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/signup_phoneno"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/lstyle"
+            android:id="@+id/linearlayout">
+
+
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/user_type"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/signup_phoneno"
-            android:text="User type"
+            android:text="User type -"
             android:textSize="20dp"
-            android:layout_marginLeft="15dp"
+            android:layout_marginLeft="25dp"
             android:textStyle="bold"/>
+
 
         <Spinner
             android:id="@+id/spinner"
@@ -118,11 +135,14 @@
             android:layout_height="50dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/signup_phoneno"
-            android:layout_marginRight="20dp"
+            android:layout_marginRight="30dp"
             android:spinnerMode="dropdown"
 
 
             />
+
+        </LinearLayout>
+
 
 
 
@@ -131,40 +151,34 @@
             android:layout_height="wrap_content"
             android:id="@+id/btn_signup_signupactivity"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/signup_phoneno"
+            app:layout_constraintTop_toBottomOf="@+id/linearlayout"
             android:text="sign up"
             android:textStyle="bold"
-            android:layout_marginTop="70dp"
+            android:layout_marginTop="30dp"
             android:layout_marginLeft="40dp"
             android:layout_marginRight="40dp"
             app:cornerRadius="20dp"
             />
 
 
-        <com.google.android.material.button.MaterialButton
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/btn_sign_in"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btn_signup_signupactivity"
-            android:text="sign in"
-            android:textStyle="bold"
-            android:layout_marginTop="40dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="40dp"
-            app:cornerRadius="20dp"
-            />
+
 
         <com.google.android.material.textview.MaterialTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/Already_I_have_a_account"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/btn_sign_in"
+            app:layout_constraintTop_toBottomOf="@+id/btn_signup_signupactivity"
+            android:layout_marginTop="30dp"
             android:text="Already I have a account"
-            android:layout_marginRight="20dp"
-            android:textSize="15dp"
+            android:layout_marginRight="50dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"
             android:textStyle="bold"/>
+
+
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
