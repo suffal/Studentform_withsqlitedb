@@ -72,7 +72,7 @@ class userformActivity : AppCompatActivity(), View.OnClickListener,
             R.id.item2 -> {
                 val intent = Intent(this, userinformationActivity::class.java)
                 startActivity(intent)
-
+                return true
             }
         }
 
