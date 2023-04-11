@@ -5,6 +5,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
+import com.example.studentform_withsqlitedb.students
 
 private const val SRNO="Sr"
 private const val DB_NAME = "db_chetu"
@@ -45,6 +46,7 @@ class sqliteRepository(private val context: Context){
       val id:Long= sqliteDb.insert(TABLE_NAME,null,contentValue)
 
       if (id>0){
+
           Toast.makeText(context,"Data saved succesfully",Toast.LENGTH_SHORT).show()
       }
        else{
@@ -52,6 +54,40 @@ class sqliteRepository(private val context: Context){
           Toast.makeText(context,"Something went wrong ",Toast.LENGTH_SHORT).show()
       }
    }
+
+fun getAlldata(): ArrayList<students> {
+    var listofstudent1=ArrayList<students>()
+    val columns= arrayOf(SRNO, FNAME, LNAME, PHONE_NUMBER)
+    val  cursor=sqliteDb.query(TABLE_NAME,columns,null,null,null,null,null)
+    if(cursor.count>0){
+
+        cursor.moveToFirst()
+        do {
+        val SrNo= cursor.getString(0)
+            val FirstName= cursor.getString(1)
+            val LastName= cursor.getString(2)
+            val PhoneNo= cursor.getString(3)
+
+            val Student=students(SrNo,FirstName,LastName, PhoneNo)
+
+            listofstudent1.add(Student)
+
+        }while (cursor.moveToNext())
+
+    }else{
+        Toast.makeText(context, "something went wrong", Toast.LENGTH_SHORT).show()
+    }
+
+    return listofstudent1
+}
+
+
+
+
+
+
+
+
 //  get data from this pese of code
 
   //  fun get data
