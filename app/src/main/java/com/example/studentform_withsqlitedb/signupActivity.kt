@@ -1,14 +1,12 @@
 package com.example.studentform_withsqlitedb
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
-import android.widget.TableRow
 import android.widget.Toast
-import androidx.core.content.ContextCompat
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.example.studentform_withsqlitedb.Repository.sharedprefranceRepository
@@ -22,7 +20,7 @@ class signupActivity : AppCompatActivity(), View.OnClickListener,
     private lateinit var binding: ActivitySignupBinding
     lateinit var viewmodelFactory: sharedprefrenceviewmodelfactory
     lateinit var viewmodel: sharedprefranceviewmodels
-
+    var usertype: String = " "
     val Item = arrayOf("Guest", "HR", "Cunsultant", "Faculty", "Admin")
 
 
@@ -32,21 +30,20 @@ class signupActivity : AppCompatActivity(), View.OnClickListener,
         getSupportActionBar()?.hide()
 
 
-
-        val ItemAdapter = ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, Item)
+        val ItemAdapter =
+            ArrayAdapter<String>(this, android.R.layout.simple_expandable_list_item_1, Item)
         binding.spinner.adapter = ItemAdapter
 
-          binding.spinner.onItemSelectedListener=this  // to use click listener on the spinner view to use Itemselectedlistener
+        binding.spinner.onItemSelectedListener =
+            this  // to use click listener on the spinner view to use Itemselectedlistener
 
         binding.AlreadyIHaveAAccount.setOnClickListener(this)
         binding.btnSignupSignupactivity.setOnClickListener(this)
 
 
 
-        viewmodelFactory =  sharedprefrenceviewmodelfactory(sharedprefranceRepository,this)
+        viewmodelFactory = sharedprefrenceviewmodelfactory(sharedprefranceRepository, this)
         viewmodel = ViewModelProvider(this, viewmodelFactory)[sharedprefranceviewmodels::class.java]
-
-
 
 
     }
@@ -80,8 +77,16 @@ class signupActivity : AppCompatActivity(), View.OnClickListener,
                     binding.signupPhoneno1.requestFocus()
                 } else {
                     Toast.makeText(this, "successfully registered", Toast.LENGTH_LONG).show()
-                    viewmodel.saveData(binding.SFname.text.toString(), binding.SLname.text.toString(),binding.signupPhoneno1.text.toString())
-                    startActivity(Intent(this,userformActivity::class.java))
+
+
+
+                    viewmodel.saveData(
+                        binding.SFname.text.toString(),
+                        binding.SLname.text.toString(),
+                        binding.signupPhoneno1.text.toString(),
+                        usertype!!
+                    )
+                    startActivity(Intent(this, userformActivity::class.java))
 
                 }
 
@@ -90,9 +95,10 @@ class signupActivity : AppCompatActivity(), View.OnClickListener,
     }
 
     // onItemSelectedListener have a two mathed onitemselected , on NpthingSelected
-    override fun onItemSelected(adapter: AdapterView<*>?, view: View?, position:Int, row: Long) {
+    override fun onItemSelected(adapter: AdapterView<*>?, view: View?, position: Int, row: Long) {
         val data = adapter?.getItemAtPosition(position)
         Toast.makeText(this, "You are selected $data", Toast.LENGTH_SHORT).show()
+        usertype = data.toString()
 
     }
 

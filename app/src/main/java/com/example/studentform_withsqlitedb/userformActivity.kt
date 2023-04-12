@@ -16,9 +16,12 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.example.studentform_withsqlitedb.Repository.sharedprefranceRepository
 import com.example.studentform_withsqlitedb.Repository.sqliteRepository
+import com.example.studentform_withsqlitedb.Viewmodel.sharedprefranceviewmodels
 import com.example.studentform_withsqlitedb.Viewmodel.squliteviewmodel
 import com.example.studentform_withsqlitedb.databinding.ActivityUserformBinding
+import com.example.studentform_withsqlitedb.factory.sharedprefrenceviewmodelfactory
 import com.example.studentform_withsqlitedb.factory.sqliteFactory
 
 
@@ -27,6 +30,8 @@ class userformActivity : AppCompatActivity(), View.OnClickListener,
     private lateinit var binding: ActivityUserformBinding
     lateinit var factory: sqliteFactory
     lateinit var viewmodel: squliteviewmodel
+    lateinit var viewModelshar:sharedprefranceviewmodels
+    lateinit var factoryshar:sharedprefrenceviewmodelfactory
     var gender: String? = null
     var course:String?=null
     val list: ArrayList<String> = ArrayList()
@@ -40,6 +45,10 @@ class userformActivity : AppCompatActivity(), View.OnClickListener,
         viewmodel = ViewModelProvider(this, factory)[squliteviewmodel::class.java]
 
 
+        factoryshar=sharedprefrenceviewmodelfactory(sharedprefranceRepository,this)
+        viewModelshar=ViewModelProvider(this,factoryshar)[sharedprefranceviewmodels::class.java]
+
+        binding.userValue.text=viewModelshar.getusertype()
         binding.btnSubmit.setOnClickListener(this)
 
 

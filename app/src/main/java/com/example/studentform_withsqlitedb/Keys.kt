@@ -4,8 +4,9 @@ class Keys {
     companion object {
 
         val FNAME="fname"
-        val LNAME="fname"
-        val MOBNO="fname"
+        val LNAME="lname"
+        val MOBNO="phone"
+        val usertype="usertype"
 
     }
 

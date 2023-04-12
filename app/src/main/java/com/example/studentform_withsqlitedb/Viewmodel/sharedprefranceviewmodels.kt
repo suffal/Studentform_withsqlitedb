@@ -10,16 +10,22 @@ class sharedprefranceviewmodels(private val sharedPrefrepo: sharedprefranceRepos
 
 
 
-    fun saveData(fname:String,lname:String,phonenumber:String){
+    fun saveData(fname:String,lname:String,phonenumber:String,usertype:String){
 
         sharedPrefrepo.getpreference(context).edit().putString(Keys.FNAME,fname ).commit()
         sharedPrefrepo.getpreference(context).edit().putString(Keys.LNAME, lname).commit()
         sharedPrefrepo.getpreference(context).edit().putString(Keys.MOBNO,phonenumber).commit()
+        sharedPrefrepo.getpreference(context).edit().putString(Keys.usertype,usertype).commit()
+
     }
 
     fun getphone():String{
         val phoneNo = sharedPrefrepo.getpreference(context).getString(Keys.MOBNO,"")
         return phoneNo!!
-    }
 
+    }
+fun getusertype():String{
+    val usertype=sharedPrefrepo.getpreference(context).getString(Keys.usertype," ")
+    return usertype!!
+}
 }
