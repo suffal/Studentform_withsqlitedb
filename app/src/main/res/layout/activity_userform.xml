@@ -42,6 +42,7 @@
             app:layout_constraintTop_toTopOf="parent"
              android:hint="Guest"
             android:textSize="18dp"
+            android:textColor="@color/black"
             android:layout_marginRight="10dp"
 
             android:textStyle="bold"/>

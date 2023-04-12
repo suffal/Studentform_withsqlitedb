@@ -89,8 +89,9 @@
             android:textSize="20dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
-
             android:textColor="@color/black"/>
+
+
 
         <TextView
             android:layout_width="wrap_content"
@@ -103,8 +104,8 @@
             android:textSize="20dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
+/>
 
-            android:textColor="@color/black"/>
 
 
         <TextView
@@ -117,9 +118,9 @@
 
             android:textSize="20dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="10dp"/>
 
-            android:textColor="@color/black"/>
+
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.example.studentform_withsqlitedb
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import android.database.Cursor
 import android.icu.text.Transliterator.Position
@@ -24,42 +25,40 @@ import com.example.studentform_withsqlitedb.databinding.ActivityUserinformationB
 import com.example.studentform_withsqlitedb.factory.sqliteFactory
 import java.text.FieldPosition
 
-class userinformationActivity : AppCompatActivity(), AdapterView.OnItemClickListener,
+class userinformationActivity : AppCompatActivity(),
     AdapterView.OnItemLongClickListener {
     private lateinit var binding: ActivityUserinformationBinding
     lateinit var factory: sqliteFactory
     lateinit var viewmodel: squliteviewmodel
 
-    private var rowId =0
-    //private var position = 0
+
+    private var position = 0
     private lateinit var cursor: Cursor
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_userinformation)
-
-
         factory = sqliteFactory(sqliteRepository(this))
         viewmodel = ViewModelProvider(this, factory)[squliteviewmodel::class.java]
-
+        // register the context manu
+        registerForContextMenu(binding.listView)
+        //binding.listView.setOnItemClickListener(this)
+        binding.listView.setOnItemLongClickListener(this)
+               setlistview()
 
         // send the data of listview from baseadopter
 
 
-            val listofstudents = viewmodel.getAllData()
-            val myadapter = list_viewAdapter(listofstudents)
-            binding.listView.adapter = myadapter
+//            val listofstudents = getAllData()
+//            val myadapter = list_viewAdapter(listofstudents)
+//            binding.listView.adapter = myadapter
+//
 
 
 
 
 
 
-
-        // register the context manu
-        registerForContextMenu(binding.listView)
-        binding.listView.setOnItemClickListener(this)
-        binding.listView.setOnItemLongClickListener(this)
 
 
     }
@@ -88,15 +87,21 @@ class userinformationActivity : AppCompatActivity(), AdapterView.OnItemClickList
 
 
 
-    override fun onItemClick(adapter: AdapterView<*>?, view: View?, position: Int, rowItem: Long) {
+//    override fun onItemClick(adapter: AdapterView<*>?, view: View?, position: Int, rowItem: Long) {
+//
+//            Toast.makeText(this, "$position", Toast.LENGTH_SHORT).show()
+//
+//        }
 
-            Toast.makeText(this, "$position", Toast.LENGTH_SHORT).show()
 
-        }
 
-        override fun onItemLongClick(adapter: AdapterView<*>?, view: View?, position: Int, rowItem: Long): Boolean {
-            rowId=position
+
+    override fun onItemLongClick(adapter: AdapterView<*>?, view: View?, position: Int, rowItem: Long): Boolean {
+
+        this.position  = position
+
             return false
+
         }
 
         override fun onCreateContextMenu(menu: ContextMenu?, v: View?, menuInfo: ContextMenu.ContextMenuInfo?) {
@@ -110,10 +115,11 @@ class userinformationActivity : AppCompatActivity(), AdapterView.OnItemClickList
         when(item.itemId){
             R.id.delete->{
 
-                cursor.moveToPosition(rowId)
-                var id = cursor.getString(0)
-                viewmodel.deletesingleRecord(rowId)
-
+                cursor.moveToPosition(position)
+//                var id = cursor.getString(0)
+               val rowId= cursor.getString(0)
+               viewmodel.deletesingleRecord(rowId)
+                setlistview()
             }
 
             R.id.update->{
@@ -125,4 +131,46 @@ class userinformationActivity : AppCompatActivity(), AdapterView.OnItemClickList
     }
 
 
+    // use the code of delete the data so direct put the data
+private fun getAllData():ArrayList<students>{
+
+    cursor=viewmodel.getdata()
+    var listofstudent1=ArrayList<students>()
+    if(cursor.count>0){
+
+        cursor.moveToFirst()
+        do {
+            val SrNo= cursor.getString(0)
+            val FirstName= cursor.getString(1)
+            val LastName= cursor.getString(2)
+            val PhoneNo= cursor.getString(3)
+            val AlPhoneNo= cursor.getString(4)
+            val Email= cursor.getString(5)
+            val Dob= cursor.getString(6)
+            val gender= cursor.getString(7)
+            val course= cursor.getString(8)
+
+
+            val Student=students(SrNo,FirstName,LastName,PhoneNo,AlPhoneNo,Email,Dob,gender,course)
+
+            listofstudent1.add(Student)
+
+        }while (cursor.moveToNext())
+
+    }else{
+        Toast.makeText(this, "something went wrong", Toast.LENGTH_SHORT).show()
+    }
+
+    return listofstudent1
 }
+    fun setlistview() {
+        val listofstudents = getAllData()
+        val myadapter = list_viewAdapter(listofstudents)
+        binding.listView.adapter = myadapter
+
+
+    }
+
+}
+
+

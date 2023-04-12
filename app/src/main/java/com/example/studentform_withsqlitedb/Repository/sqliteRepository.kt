@@ -2,11 +2,12 @@ package com.example.studentform_withsqlitedb.Repository
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.widget.Toast
 import com.example.studentform_withsqlitedb.students
-
+//private lateinit var cursor: Cursor
 private const val SRNO="Sr"
 private const val DB_NAME = "db_chetu"
 private const val DB_VERSION = 1
@@ -88,9 +89,17 @@ fun getAlldata(): ArrayList<students> {
     return listofstudent1
 }
 
+    fun getdata():Cursor {
+        val columns= arrayOf(SRNO, FNAME, LNAME, PHONE_NUMBER, ALTERNATIVEPHONE_NUMBER, E_MAIL, DOB,
+            GENDER, COURSE)
+        return sqliteDb.query(TABLE_NAME,columns,null,null,null,null,null)
+
+
+    }
+
 // write a delete quere
 
-fun deletesingleRecord(rowId:Int){
+fun deletesingleRecord(rowId:String){
     val id =sqliteDb.delete(TABLE_NAME,"$SRNO=$rowId",null)
     if (id>0){
         Toast.makeText(context, "successfully deleted", Toast.LENGTH_SHORT).show()
@@ -130,3 +139,4 @@ fun deletesingleRecord(rowId:Int){
 
 
 }
+

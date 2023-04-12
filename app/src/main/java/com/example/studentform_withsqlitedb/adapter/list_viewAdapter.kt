@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.adapters.Converters
 import com.example.studentform_withsqlitedb.R
@@ -47,6 +48,14 @@ class list_viewAdapter(private val listofstudent:ArrayList<students>):BaseAdapte
         binding!!.dob.text = listofstudent[position].Dob
         binding!!.Gender.text = listofstudent[position].gender
         binding!!.course.text = listofstudent[position].course
+
+//view.setOnClickListener {
+//
+//    Toast.makeText(parent!!.context, listofstudent[position].SrNo, Toast.LENGTH_SHORT).show()
+//
+//
+//}
+
 
         return view
 

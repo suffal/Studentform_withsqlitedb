@@ -30,8 +30,10 @@ class userformActivity : AppCompatActivity(), View.OnClickListener,
     private lateinit var binding: ActivityUserformBinding
     lateinit var factory: sqliteFactory
     lateinit var viewmodel: squliteviewmodel
-    lateinit var viewModelshar:sharedprefranceviewmodels
+
+    lateinit var viewModelshar:sharedprefranceviewmodels// inislize the sharedprefrance view models
     lateinit var factoryshar:sharedprefrenceviewmodelfactory
+
     var gender: String? = null
     var course:String?=null
     val list: ArrayList<String> = ArrayList()

@@ -1,5 +1,6 @@
 package com.example.studentform_withsqlitedb.Viewmodel
 
+import android.database.Cursor
 import androidx.lifecycle.ViewModel
 import com.example.studentform_withsqlitedb.Repository.sqliteRepository
 import com.example.studentform_withsqlitedb.students
@@ -20,9 +21,11 @@ return repository.getAlldata()
 
 
     // delete query to not need adaptar
-fun deletesingleRecord(rowId:Int){
+fun deletesingleRecord(rowId:String){
     repository.deletesingleRecord(rowId)
 }
-
+ fun getdata():Cursor{
+     return repository.getdata()
+ }
 
 }
