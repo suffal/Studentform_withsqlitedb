@@ -28,6 +28,7 @@ class userformActivity : AppCompatActivity(), View.OnClickListener,
     lateinit var factory: sqliteFactory
     lateinit var viewmodel: squliteviewmodel
     var gender: String? = null
+    var course:String?=null
     val list: ArrayList<String> = ArrayList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -156,8 +157,9 @@ class userformActivity : AppCompatActivity(), View.OnClickListener,
 
             R.id.B_tech -> {
                 if (binding.BTech.isChecked) {
-                    list.add(binding.BTech.text.toString())
-                    // list.toString().replace("[", "").replace("]", "");
+                  val course=  list.add(binding.BTech.text.toString())
+
+                    list.toString().replace("[", "").replace("]", "");
                 } else {
                     list.remove(binding.BTech.text.toString())
                 }
@@ -167,8 +169,8 @@ class userformActivity : AppCompatActivity(), View.OnClickListener,
 
             R.id.bca -> {
                 if (binding.bca.isChecked) {
-                    list.add(binding.bca.text.toString())
-                    // list.toString().replace("[", "").replace("]", "");
+                    val course= list.add(binding.bca.text.toString())
+                     list.toString().replace("[", "").replace("]", "");
                 } else {
                     list.remove(binding.bca.text.toString())
                 }
@@ -178,8 +180,8 @@ class userformActivity : AppCompatActivity(), View.OnClickListener,
 
             R.id.MCA -> {
                 if (binding.MCA.isChecked) {
-                    list.add(binding.MCA.text.toString())
-                    // list.toString().replace("[", "").replace("]", "");
+                    val course= list.add(binding.MCA.text.toString())
+                     list.toString().replace("[", "").replace("]", "");
                 } else {
                     list.remove(binding.MCA.text.toString())
                 }
@@ -189,8 +191,8 @@ class userformActivity : AppCompatActivity(), View.OnClickListener,
 
             R.id.M_tech -> {
                 if (binding.MTech.isChecked) {
-                    list.add(binding.MTech.text.toString())
-                    // list.toString().replace("[", "").replace("]", "");
+                    val course=list.add(binding.MTech.text.toString())
+                     list.toString().replace("[", "").replace("]", "");
                 } else {
                     list.remove(binding.MTech.text.toString())
                 }
@@ -200,8 +202,8 @@ class userformActivity : AppCompatActivity(), View.OnClickListener,
 
             R.id.B_B_A -> {
                 if (binding.BBA.isChecked) {
-                    list.add(binding.BBA.text.toString())
-                    // list.toString().replace("[", "").replace("]", "");
+                    val course=  list.add(binding.BBA.text.toString())
+                     list.toString().replace("[", "").replace("]", "");
                 } else {
                     list.remove(binding.BBA.text.toString())
                 }
@@ -211,8 +213,8 @@ class userformActivity : AppCompatActivity(), View.OnClickListener,
 
             R.id.M_B_A -> {
                 if (binding.MBA.isChecked) {
-                    list.add(binding.MBA.text.toString())
-                    // list.toString().replace("[", "").replace("]", "");
+                    val course=    list.add(binding.MBA.text.toString())
+                     list.toString().replace("[", "").replace("]", "");
                 } else {
                     list.remove(binding.MBA.text.toString())
                 }
@@ -222,8 +224,8 @@ class userformActivity : AppCompatActivity(), View.OnClickListener,
 
             R.id.B_A -> {
                 if (binding.BA.isChecked) {
-                    list.add(binding.BA.text.toString())
-                    // list.toString().replace("[", "").replace("]", "");
+                    val course=   list.add(binding.BA.text.toString())
+                     list.toString().replace("[", "").replace("]", "");
                 } else {
                     list.remove(binding.BA.text.toString())
                 }
@@ -231,8 +233,8 @@ class userformActivity : AppCompatActivity(), View.OnClickListener,
 
             R.id.M_A -> {
                 if (binding.MA.isChecked) {
-                    list.add(binding.MA.text.toString())
-                    // list.toString().replace("[", "").replace("]", "");
+                    val course=  list.add(binding.MA.text.toString())
+                     list.toString().replace("[", "").replace("]", "");
                 } else {
                     list.remove(binding.MA.text.toString())
                 }
@@ -245,8 +247,8 @@ class userformActivity : AppCompatActivity(), View.OnClickListener,
 
             R.id.B_Sc -> {
                 if (binding.BSc.isChecked) {
-                    list.add(binding.BSc.text.toString())
-                    // list.toString().replace("[", "").replace("]", "");
+                    val course= list.add(binding.BSc.text.toString())
+                     list.toString().replace("[", "").replace("]", "");
                 } else {
                     list.remove(binding.BSc.text.toString())
                 }

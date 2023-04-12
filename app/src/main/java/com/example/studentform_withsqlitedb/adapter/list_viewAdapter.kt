@@ -42,6 +42,11 @@ class list_viewAdapter(private val listofstudent:ArrayList<students>):BaseAdapte
         binding!!.fname.text = listofstudent[position].FName
         binding!!.lname.text = listofstudent[position].LName
         binding!!.phone.text = listofstudent[position].PhoneNo
+        binding!!.AlPhone.text = listofstudent[position].AlPhoneNo
+        binding!!.Email.text = listofstudent[position].Email
+        binding!!.dob.text = listofstudent[position].Dob
+        binding!!.Gender.text = listofstudent[position].gender
+        binding!!.course.text = listofstudent[position].course
 
         return view
 

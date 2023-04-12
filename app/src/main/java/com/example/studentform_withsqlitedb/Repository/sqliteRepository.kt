@@ -57,7 +57,8 @@ class sqliteRepository(private val context: Context){
 
 fun getAlldata(): ArrayList<students> {
     var listofstudent1=ArrayList<students>()
-    val columns= arrayOf(SRNO, FNAME, LNAME, PHONE_NUMBER)
+    val columns= arrayOf(SRNO, FNAME, LNAME, PHONE_NUMBER, ALTERNATIVEPHONE_NUMBER, E_MAIL, DOB,
+        GENDER, COURSE)
     val  cursor=sqliteDb.query(TABLE_NAME,columns,null,null,null,null,null)
     if(cursor.count>0){
 
@@ -67,8 +68,14 @@ fun getAlldata(): ArrayList<students> {
             val FirstName= cursor.getString(1)
             val LastName= cursor.getString(2)
             val PhoneNo= cursor.getString(3)
+            val AlPhoneNo= cursor.getString(4)
+            val Email= cursor.getString(5)
+            val Dob= cursor.getString(6)
+            val gender= cursor.getString(7)
+            val course= cursor.getString(8)
 
-            val Student=students(SrNo,FirstName,LastName, PhoneNo)
+
+            val Student=students(SrNo,FirstName,LastName,PhoneNo,AlPhoneNo,Email,Dob,gender,course)
 
             listofstudent1.add(Student)
 
@@ -81,8 +88,16 @@ fun getAlldata(): ArrayList<students> {
     return listofstudent1
 }
 
+// write a delete quere
 
-
+fun deletesingleRecord(rowId:Int){
+    val id =sqliteDb.delete(TABLE_NAME,"$SRNO=$rowId",null)
+    if (id>0){
+        Toast.makeText(context, "successfully deleted", Toast.LENGTH_SHORT).show()
+    }else{
+        Toast.makeText(context, "something went wrong", Toast.LENGTH_SHORT).show()
+    }
+}
 
 
 

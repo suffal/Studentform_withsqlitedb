@@ -3,6 +3,7 @@ package com.example.studentform_withsqlitedb.Viewmodel
 import androidx.lifecycle.ViewModel
 import com.example.studentform_withsqlitedb.Repository.sqliteRepository
 import com.example.studentform_withsqlitedb.students
+import java.sql.RowId
 
 class squliteviewmodel(private val repository: sqliteRepository):ViewModel() {
 
@@ -17,6 +18,11 @@ return repository.getAlldata()
 
 }
 
+
+    // delete query to not need adaptar
+fun deletesingleRecord(rowId:Int){
+    repository.deletesingleRecord(rowId)
+}
 
 
 }
